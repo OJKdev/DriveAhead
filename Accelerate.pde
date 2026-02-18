@@ -29,14 +29,14 @@ class Drive {
     
 
     // sätt target beroende på knapp
-    if (keyPressed) {
-      if (key == 'w' || key == 'W') target += acceleration;
+    
+      if (input.isDown('W')){ target += acceleration;
     } else {
       if (target > minValue)  target -= engineBreak;
     }
 
-    if (keyPressed) {
-      if (key == 's' || key == 'S') if (target > minValue)  target -= stopDist;
+   
+      if (input.isDown('S')) { if (target > minValue)  target -= stopDist;
     }
     if (value < maxValue) {
       value = lerp(value, target, speed);

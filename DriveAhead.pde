@@ -1,6 +1,9 @@
 int width = 1000;
 int height = 600;
 float mouseValue;
+Input input;
+UI ui;
+
 
 
 void settings(){
@@ -14,7 +17,8 @@ void settings(){
 
 
 void setup() {
-
+input = new Input();
+ui = new UI();
 }
   
 
@@ -25,6 +29,14 @@ steer.WheelKeys();
 drive.Gas();
 
 road.DrawRoad(steer.SteerValue(),drive.DriveValue());
+ui.speedoMeter(drive.DriveValue());
 
+}
 
+void keyPressed() {
+  input.press(key);
+}
+
+void keyReleased() {
+  input.release(key);
 }

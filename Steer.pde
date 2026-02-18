@@ -17,10 +17,10 @@ return mouseValue;
   void WheelKeys() {
 
     // sätt target beroende på knapp
-    if (keyPressed) {
-      if (key == 'a' || key == 'A') target += step;
-      if (key == 'd' || key == 'D') target -= step;
-    }
+    
+      if (input.isDown('A')) target += step;
+      if (input.isDown('D')) target -= step;
+    
 
     // mjuk rörelse mot target
     if (value > maxValue*-1 && value < maxValue) {
