@@ -3,6 +3,7 @@ int height = 600;
 float mouseValue;
 Input input;
 UI ui;
+Headlights hl;
 
 
 
@@ -19,17 +20,25 @@ void settings(){
 void setup() {
 input = new Input();
 ui = new UI();
+hl = new Headlights();
 }
   
 
 void draw() {
 background(0);
-pointLight(255, 255, 255, 50, 70, 100);
+//pointLight(255, 255, 255, 50, 70, 100);
+
+
+ui.speedoMeter(drive.DriveValue());
+
+//ambientLight(2,20,20);
+
 steer.WheelKeys();
 drive.Gas();
-
+hl.HeadLight(steer.SteerValue());
 road.DrawRoad(steer.SteerValue(),drive.DriveValue());
-ui.speedoMeter(drive.DriveValue());
+
+ 
 
 }
 

@@ -47,7 +47,7 @@ class Drive {
 
     // mjuk rörelse mot target
 
-    println("value:" + value + " target: " + target + " Gearrate: " + gearRate);
+   // println("value:" + value + " target: " + target + " Gearrate: " + gearRate);
   }
 
   float DriveValue() {

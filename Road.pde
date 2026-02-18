@@ -6,13 +6,17 @@ class Road {
 
 
   public void DrawRoad (float laneOffset, float speed) {
-    RoadLines(speed);
+    
     LaneOffset = laneOffset;
-    OffRoad();
-    TheRoad();
+    
+    
+  OffRoad();
+    
+   RoadLines(speed);
+   TheRoad();
     //Lines();
-    LeftRoadSide();
-    RightRoadSide();
+   LeftRoadSide();
+   RightRoadSide();
   }
   public void OffRoad() {
     pushMatrix();
@@ -30,9 +34,9 @@ class Road {
 
     translate(500+LaneOffset, 341, 0);
     rotateY(0.0);
-    fill(163, 163, 163);
-    stroke(0);
-    box(335, 6, 910);
+    fill(255);
+    noStroke();
+    box(335, -2, 910);
     popMatrix();
   }
 
@@ -43,7 +47,7 @@ class Road {
     rotateY(0.0);
     fill(255);
     stroke(163);
-    box(-4, 0, 107);
+    box(-4, 2, 107);
     popMatrix();
   }
 
@@ -75,7 +79,7 @@ class Road {
     translate(666+LaneOffset, 336, 80);
     rotateY(0.0);
     fill(255);
-    stroke(163);
+    noStroke();
     box(-4, 4, 920);
     popMatrix();
   }
@@ -85,7 +89,7 @@ class Road {
     translate(333+LaneOffset, 336, 80);
     rotateY(0.0);
     fill(255);
-    stroke(163);
+    noStroke();
     box(-4, 4, 920);
     popMatrix();
   }
