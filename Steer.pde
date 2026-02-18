@@ -1,0 +1,39 @@
+class Steer {
+  
+float value = 0;     // aktuellt värde
+  float target = 0;    // vart vi vill
+  float speed = 0.1;   // hur snabbt den lerpar
+  
+  float maxValue = 100;
+  float step = 3;
+  
+public float WheelMouse(){
+  mouseValue = map(mouseX, 1, width, 100, -100);
+return mouseValue;
+}
+
+
+
+  void WheelKeys() {
+
+    // sätt target beroende på knapp
+    if (keyPressed) {
+      if (key == 'a' || key == 'A') target += step;
+      if (key == 'd' || key == 'D') target -= step;
+    }
+
+    // mjuk rörelse mot target
+    if (value > maxValue*-1 && value < maxValue) {
+    value = lerp(value, target, speed);} else {
+    target = (maxValue-1) * Math.signum(target);
+  value = lerp(value, target, speed); }
+   
+  }
+
+  float SteerValue() {
+    
+   // println("value:" + value + "target:" + target);
+    return value;
+  }
+
+}
