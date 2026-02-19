@@ -32,11 +32,11 @@ class Road {
   public void TheRoad() {
     pushMatrix();
 
-    translate(500+LaneOffset, 341, 0);
+    translate(500+LaneOffset, 341, 354);
     rotateY(0.0);
     fill(255);
     noStroke();
-    box(335, -2, 910);
+    box(335, -2, 2500);
     popMatrix();
   }
 
@@ -80,7 +80,7 @@ class Road {
     rotateY(0.0);
     fill(255);
     noStroke();
-    box(-4, 4, 920);
+    box(-4, 4, 2500);
     popMatrix();
   }
   public void RightRoadSide() {
@@ -90,7 +90,7 @@ class Road {
     rotateY(0.0);
     fill(255);
     noStroke();
-    box(-4, 4, 920);
+    box(-4, 4, 2500);
     popMatrix();
   }
 }

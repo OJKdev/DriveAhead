@@ -2,17 +2,24 @@ class Headlights {
 
   public void HeadLight(float laneOffset) {
 
-    spotLight(253, 255, 193,
+   /* spotLight(253, 255, 193,
       400+laneOffset, 312, 793, // position (kameran)
-      -4, 1, -5, // riktning
+      -2, 1, -5, // riktning
       PI/6.5, // vinkel (smalare = mer koncentrerad)
-      3);
+      3);*/
+      //lightFalloff(-3.8, 0.0, 0.00008);
+
     spotLight(252, 253, 205,
-      500+laneOffset, 326, 479, // position (kameran)
-      0, 1, -5, // riktning
+      450+laneOffset, 296, 660, // position (kameran)
+      0, 0, -5, // riktning
       PI/6.6, // vinkel (smalare = mer koncentrerad)
-      45);
-    spotLight(253, 255, 193,
+      6);
+      spotLight(252, 253, 205,
+      550+laneOffset, 296, 660, // position (kameran)
+      0, 0, -5, // riktning
+      PI/6.6, // vinkel (smalare = mer koncentrerad)
+      6);
+ /*   spotLight(253, 255, 193,
       600+laneOffset, 311, 830, // position (kameran)
       4, 1, -5, // riktning
       PI/6.6, // vinkel (smalare = mer koncentrerad)
