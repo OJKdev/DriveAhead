@@ -1,4 +1,4 @@
-class Steer {
+class Steering {
   
 float value = 0;     // aktuellt värde
   float target = 0;    // vart vi vill
@@ -7,14 +7,11 @@ float value = 0;     // aktuellt värde
   float maxValue = 100;
   float step = 3;
   
-public float WheelMouse(){
-  mouseValue = map(mouseX, 1, width, 100, -100);
-return mouseValue;
-}
 
 
 
-  void WheelKeys() {
+
+  void Wheel() {
 
     // sätt target beroende på knapp
     
@@ -30,7 +27,7 @@ return mouseValue;
    
   }
 
-  float SteerValue() {
+  float Value() {
     
    // println("value:" + value + "target:" + target);
     return value;

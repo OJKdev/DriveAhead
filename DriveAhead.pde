@@ -12,6 +12,10 @@ Vehicle vehicle;
 Traffic traffic;
 Odometer odometer;
 Timer timer;
+Steering steering;
+Drive drive;
+Road road;
+ 
 
 
 void settings() {
@@ -19,30 +23,23 @@ void settings() {
   
 }
 
-
- Steer steer = new Steer();
- Drive drive = new Drive();
- Road road = new Road();
- 
-
-
 void setup() {
-   colorMode(RGB, 255, 255, 255);
-  // surface.setResizable(true);
-  //fullScreen(P3D);
 input = new Input();
 ui = new UI();
 hl = new Headlights();
-//vehicle = new Vehicle(false, color(242, 0, 188), 1);
 traffic = new Traffic();
 traffic.create(6);
 odometer = new Odometer();
 timer = new Timer();
 timer.reset();
+steering = new Steering();
+drive = new Drive();
+road = new Road();
 }
   
 
 void draw() {
+ //Global Matrix for window scaling
  pushMatrix();
 
 float scaleFactor = min(width/1000.0, height/600.0);
@@ -51,37 +48,27 @@ scale(scaleFactor);
 translate( (width/scaleFactor - 1000)/2,
            (height/scaleFactor - 600)/2 );
 
-
-
-
-
 background(0);
-//pointLight(255, 255, 255, 50, 70, 100);
 
-pushMatrix();
-
-odometer.countDistance(drive.DriveValue(), timer.deltaTime);
+//Ui
+odometer.countDistance(drive.Value(), timer.deltaTime);
 ui.Odometer(odometer.distanceKm);
-ui.speedoMeter(drive.DriveValue());
+ui.speedoMeter(drive.Value());
 ui.ElapsedTime(timer.Value());
 
-popMatrix();
-
-//ambientLight(150,150,150);
-
-steer.WheelKeys();
-drive.Gas();
-hl.HeadLight(steer.SteerValue());
-road.DrawRoad(steer.SteerValue(),drive.DriveValue());
-
-
-traffic.spawn(drive.DriveValue());
-
-//traffic.Run(drive.DriveValue());
 
 
 
+//Controllers
+steering.Wheel();
+drive.Pedals();
+hl.HeadLight(steering.Value());
+road.DrawRoad(steering.Value(),drive.Value());
+traffic.spawn(drive.Value(),steering.Value());
 
+
+
+//Global Matrix pop
 popMatrix();
 }
 

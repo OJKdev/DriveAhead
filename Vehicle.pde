@@ -8,6 +8,7 @@ class Vehicle {
   color C = color(242, 0, 188);
   float Pos;
   float Speed;
+  float Steer;
 
   Vehicle (boolean outerLane, color c, float pos, float speed) {
     OuterLane = outerLane;
@@ -16,8 +17,9 @@ class Vehicle {
     Speed = speed;
   }
   
-  void update(float playerSpeed){
+  void update(float playerSpeed, float steer){
     Pos -= Speed-playerSpeed;
+    Steer = steer;
   }
 
 
@@ -27,16 +29,19 @@ class Vehicle {
     } else {
       currentLane = innerLanePos;
     }
-
+    
+    //Distance dimming
     float t = map(Pos, -4600, -4000, 0, 1);
     t = constrain(t, 0, 1);
-
+    float l = map(Pos, -5000, -3000, 10,5);
+    l = constrain(l, 5, 10);
+  
 
 
 
     //Draw car
     pushMatrix();
-    translate(currentLane+steer.SteerValue(), 328+tHeight, Pos);
+    translate(currentLane+Steer, 328+tHeight, Pos);
 
     //Body
     pushMatrix();
@@ -82,7 +87,7 @@ class Vehicle {
     pushMatrix();
     translate(-35, 10, 45);
     stroke(251*t, 77*t, 77*t);
-    strokeWeight(10);
+    strokeWeight(l);
     fill(248*t, 1*t, 42*t);
     box(24, 11, 6);
     popMatrix();
@@ -91,7 +96,7 @@ class Vehicle {
     pushMatrix();
     translate(36, 10, 45);
     stroke(251*t, 77*t, 77*t);
-    strokeWeight(10);
+    strokeWeight(l);
     fill(248*t, 1*t, 42*t);
     box(24, 11, 6);
     popMatrix();

@@ -8,10 +8,10 @@ class Traffic
   boolean spawned = false;
 
 
-  //Lane true false count
 
 
-  //Vehicle vehicle = new Vehicle(true, color(120, 55, 203), 0);
+
+  //Vehicle vehicle = new Vehicle(true, color(120, 55, 203), 300, 0);
   ArrayList<Vehicle> traffic = new ArrayList<Vehicle>();
 
 
@@ -46,9 +46,9 @@ class Traffic
     }
   }
 
-  void spawn(float playerSpeed) {
+  void spawn(float playerSpeed, float steer) {
     for (Vehicle v : traffic) {
-      v.update(playerSpeed);
+      v.update(playerSpeed, steer);
       v.Draw();
       Reset();
     }
