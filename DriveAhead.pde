@@ -10,6 +10,8 @@ UI ui;
 Headlights hl;
 Vehicle vehicle;
 Traffic traffic;
+Odometer odometer;
+Timer timer;
 
 
 void settings() {
@@ -33,7 +35,10 @@ ui = new UI();
 hl = new Headlights();
 //vehicle = new Vehicle(false, color(242, 0, 188), 1);
 traffic = new Traffic();
-traffic.create();
+traffic.create(6);
+odometer = new Odometer();
+timer = new Timer();
+timer.reset();
 }
   
 
@@ -55,7 +60,10 @@ background(0);
 
 pushMatrix();
 
+odometer.countDistance(drive.DriveValue(), timer.deltaTime);
+ui.Odometer(odometer.distanceKm);
 ui.speedoMeter(drive.DriveValue());
+ui.ElapsedTime(timer.Value());
 
 popMatrix();
 
@@ -68,6 +76,7 @@ road.DrawRoad(steer.SteerValue(),drive.DriveValue());
 
 
 traffic.spawn(drive.DriveValue());
+
 //traffic.Run(drive.DriveValue());
 
 
