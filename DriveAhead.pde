@@ -14,6 +14,7 @@ Timer timer;
 Steering steering;
 Drive drive;
 Road road;
+Player player;
  
 
 
@@ -34,6 +35,7 @@ timer.reset();
 steering = new Steering();
 drive = new Drive();
 road = new Road();
+player = new Player(0,0, 0);
 
 }
   
@@ -65,6 +67,8 @@ drive.pedals();
 hl.HeadLight(steering.value());
 road.DrawRoad(steering.value(),drive.value());
 traffic.spawn(drive.value(),steering.value());
+player.update(steering.value(),300, 490, true);
+
 
 
 

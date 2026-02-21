@@ -30,21 +30,19 @@ class Traffic
     for (Vehicle v : traffic) {
       v.update(playerSpeed, steer);
       v.draw();
-      trafficAi();
+      trafficBehaviour();
       reset();
     }
     
   }
-  void trafficAi() {
+  void trafficBehaviour() {
     float hitBoundary = 200;
     float overlap = 55;
     for (int s = 0; s < traffic.size(); s++) {
       Vehicle a = traffic.get(s);
       for (int r = s+1; r < traffic.size(); r++) {
         Vehicle b =  traffic.get(r);
-
-
-
+ 
         if (a.OuterLane == b.OuterLane) {
 
           if (a.Pos - overlap < b.Pos + overlap &&
