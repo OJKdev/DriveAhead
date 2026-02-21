@@ -8,7 +8,6 @@ float mouseValue;
 Input input;
 UI ui;
 Headlights hl;
-Vehicle vehicle;
 Traffic traffic;
 Odometer odometer;
 Timer timer;
@@ -28,13 +27,14 @@ input = new Input();
 ui = new UI();
 hl = new Headlights();
 traffic = new Traffic();
-traffic.create(6);
+traffic.create(10);
 odometer = new Odometer();
 timer = new Timer();
 timer.reset();
 steering = new Steering();
 drive = new Drive();
 road = new Road();
+
 }
   
 
@@ -51,20 +51,22 @@ translate( (width/scaleFactor - 1000)/2,
 background(0);
 
 //Ui
-odometer.countDistance(drive.Value(), timer.deltaTime);
-ui.Odometer(odometer.distanceKm);
-ui.speedoMeter(drive.Value());
-ui.ElapsedTime(timer.Value());
+odometer.countDistance(drive.value(), timer.deltaTime);
+ui.odometer(odometer.distanceKm);
+ui.speedoMeter(drive.value());
+ui.elapsedTime(timer.Value());
 
 
 
 
 //Controllers
-steering.Wheel();
-drive.Pedals();
-hl.HeadLight(steering.Value());
-road.DrawRoad(steering.Value(),drive.Value());
-traffic.spawn(drive.Value(),steering.Value());
+steering.wheel();
+drive.pedals();
+hl.HeadLight(steering.value());
+road.DrawRoad(steering.value(),drive.value());
+traffic.spawn(drive.value(),steering.value());
+
+
 
 
 

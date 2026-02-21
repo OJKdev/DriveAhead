@@ -23,7 +23,7 @@ class Vehicle {
   }
 
 
-  public void Draw() {
+  public void draw() {
     if (OuterLane) {
       currentLane = outerLanePos;
     } else {

@@ -13,7 +13,7 @@ class UI {
     text(speed+" km/h", 20, 36);
     popMatrix();
   }
-  public void Odometer(float distance) {
+  public void odometer(float distance) {
 
     distText = str(distance);
     fill(#E9FF48);
@@ -22,7 +22,7 @@ class UI {
     text(nf(distance, 0, 2) + " km", 20, 65);
     ;
   }
-  public void ElapsedTime(float timerValue) {
+  public void elapsedTime(float timerValue) {
 
     time = nf(timerValue, 0, 2);
 

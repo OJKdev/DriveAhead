@@ -13,7 +13,7 @@ class Drive {
   float acceleration;
   float stopDist;
 
-  void Pedals () {
+  void pedals () {
 
     if (value < maxValue*0.45) gearRate = 0.4;
     if (value > maxValue*0.45 && value < maxValue*0.65 ) gearRate = 0.15;
@@ -39,7 +39,7 @@ class Drive {
 
   }
 
-  float Value() {
+  float value() {
     if (value > maxValue*-1 && value < maxValue) {
       value = lerp(value, target, speed);
     } else {

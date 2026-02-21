@@ -11,7 +11,7 @@ float value = 0;     // aktuellt värde
 
 
 
-  void Wheel() {
+  void wheel() {
 
     // sätt target beroende på knapp
     
@@ -27,7 +27,7 @@ float value = 0;     // aktuellt värde
    
   }
 
-  float Value() {
+  float value() {
     
    // println("value:" + value + "target:" + target);
     return value;
