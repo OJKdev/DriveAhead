@@ -1,7 +1,7 @@
 class Vehicle {
   float outerLanePos = 419;
   float innerLanePos = 581;
-  float currentLane;
+  float currentLane = 0;
   float tHeight = -20;
 
   boolean OuterLane = true;
@@ -9,15 +9,44 @@ class Vehicle {
   float Pos;
   float Speed;
   float Steer;
+  String PlateText = randomPlate();
+
+  float conformable = random(0, 1);
+  Boolean leavePrecedence = false;
+  Boolean takeOver = false;
+  Boolean wait = false;
+
+  Boolean isNearPlayer = false;
+  Boolean overlap = false;
+  Boolean violatePerimiter = false;
+  Boolean reset = false;
+
+  Boolean vAhead = false;
+  float vAheadSpeed;
+  Boolean vBehind = false;
+  float vBehindSpeed;
+
+  float desiredSpeed;
+
+  Boolean changeLaneReady = false;
+
+  Boolean beamed = false;
+  Boolean beamedCoolDown;
+  float beamedSpeed =0;
+
+
+
 
   Vehicle (boolean outerLane, color c, float pos, float speed) {
     OuterLane = outerLane;
     C =c ;
     Pos = pos;
     Speed = speed;
+    desiredSpeed = speed;
+    beamedSpeed = speed*1.2;
   }
-  
-  void update(float playerSpeed, float steer){
+
+  void update(float playerSpeed, float steer) {
     Pos -= Speed-playerSpeed;
     Steer = steer;
   }
@@ -25,19 +54,25 @@ class Vehicle {
 
   public void draw() {
     if (OuterLane) {
-      currentLane = outerLanePos;
+      if (currentLane == 0) {
+        currentLane = outerLanePos;
+      } else {
+        currentLane = lerp(currentLane, outerLanePos, 0.01);
+      }
     } else {
-      currentLane = innerLanePos;
+      if (currentLane == 0) {
+        currentLane = innerLanePos;
+      } else {
+
+        currentLane = lerp(currentLane, innerLanePos, 0.01);
+      }
     }
-    
+
     //Distance dimming
-    float t = map(Pos, -4600, -4000, 0, 1);
+    float t = map(Pos, -3600, -3000, 0, 1);
     t = constrain(t, 0, 1);
-    float l = map(Pos, -5000, -3000, 10,5);
+    float l = map(Pos, -4000, -2000, 10, 5);
     l = constrain(l, 5, 10);
-  
-
-
 
     //Draw car
     pushMatrix();
@@ -81,6 +116,15 @@ class Vehicle {
     fill(158*t, 158*t, 158*t);
     stroke(51, 50, 50);
     box(24, 11, -6);
+    popMatrix();
+
+    //PlateText
+    pushMatrix();
+    translate(0, 19.5, 49); // x,y,z i 3D-världen
+    fill(0);
+    textSize(6);
+    textAlign(CENTER);
+    text(PlateText, 0, 0);
     popMatrix();
 
     //Light
@@ -138,5 +182,15 @@ class Vehicle {
     popMatrix();
 
     popMatrix();
+  }
+  String randomPlate() {
+    String result = "";
+
+    for (int i = 0; i < 3; i++) {
+      char c = (char) random(65, 91);
+      result += c;
+    }
+
+    return result + " " + nf(int(random(999)), 3);
   }
 }

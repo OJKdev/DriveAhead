@@ -3,20 +3,18 @@ class Road {
   float speed = 0;
   ArrayList<RoadLine> roadLines = new ArrayList<RoadLine>();
 
-
-
   public void DrawRoad (float laneOffset, float speed) {
-    
+
     LaneOffset = laneOffset;
-    
-    
-  OffRoad();
-    
-   RoadLines(speed);
-   TheRoad();
+
+
+    OffRoad();
+
+    RoadLines(speed);
+    TheRoad();
     //Lines();
-   LeftRoadSide();
-   RightRoadSide();
+    LeftRoadSide();
+    RightRoadSide();
   }
   public void OffRoad() {
     pushMatrix();
@@ -57,17 +55,16 @@ class Road {
     float length = 20;
     float spacing = 50;
     for (int i = 0; i < linesAmount; i++) {
-      //if (i==0) roadLines.add(new RoadLine(lineStart, length));
+
       roadLines.add(new RoadLine(lineStart-((length+spacing)*i), length));
       RoadLine line = roadLines.get(i);
       line.Line(LaneOffset);
       line.update(speed);
       if (line.LineStart > lineStart+spacing) line.LineStart = lineStart-((length+spacing)*(linesAmount-1));
     }
-    
   }
 
- 
+
 
 
 

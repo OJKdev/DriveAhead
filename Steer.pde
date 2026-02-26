@@ -1,36 +1,28 @@
 class Steering {
-  
-float value = 0;     // aktuellt värde
-  float target = 0;    // vart vi vill
-  float speed = 0.1;   // hur snabbt den lerpar
-  
+
+  float value = 0;
+  float target = 0;
+  float speed = 0.1;
+
   float maxValue = 100;
   float step = 3;
-  
-
-
-
 
   void wheel() {
 
-    // sätt target beroende på knapp
-    
-      if (input.isDown('A')) target += step;
-      if (input.isDown('D')) target -= step;
-    
 
-    // mjuk rörelse mot target
+    if (input.isDown('A')) target += step;
+    if (input.isDown('D')) target -= step;
+
+    //lerp to target
     if (value > maxValue*-1 && value < maxValue) {
-    value = lerp(value, target, speed);} else {
-    target = (maxValue-1) * Math.signum(target);
-  value = lerp(value, target, speed); }
-   
+      value = lerp(value, target, speed);
+    } else {
+      target = (maxValue-1) * Math.signum(target);
+      value = lerp(value, target, speed);
+    }
   }
 
   float value() {
-    
-   // println("value:" + value + "target:" + target);
     return value;
   }
-
 }
