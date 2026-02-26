@@ -19,11 +19,11 @@ class Road {
   public void OffRoad() {
     pushMatrix();
 
-    translate(500+LaneOffset, 344, 0);
+    translate(500+LaneOffset, 351, 0);
     rotateY(0.0);
     fill(28, 107, 4);
-    stroke(0);
-    box(1350, 6, 910);
+    noStroke();
+    box(3000, 6, 1723);
     popMatrix();
   }
 
@@ -34,7 +34,7 @@ class Road {
     rotateY(0.0);
     fill(255);
     noStroke();
-    box(335, -2, 2500);
+    box(335, -2, 3234);
     popMatrix();
   }
 

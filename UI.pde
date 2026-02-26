@@ -30,10 +30,12 @@ class UI {
 
     distText = str(distance);
     fDist = distance;
+    pushMatrix();
     fill(#E9FF48);
     textSize(40);
     textSize(30);
     text(nf(distance, 0, 1) + " km", 20, 65);
+    popMatrix();
   }
   public void elapsedTime(float timerValue) {
 
@@ -56,11 +58,12 @@ class UI {
       nf(minutes, 2) + ":"  +
       nf(seconds, 2) + ":" +
       nf(ms, 3);
-
+    pushMatrix();
     fill(#E9FF48);
     textSize(40);
     textSize(30);
     text(timeShow + "'", 20, 99);
+    popMatrix();
   }
   public String countPoints() {
     avgSpeed = fDist/(fTime / 3600000.0);
@@ -78,12 +81,13 @@ class UI {
 
     Score = nf(score, 0, -1);
 
+    pushMatrix();
 
-
-    fill(#E9FF48);
+    fill(255);
     textSize(50);
 
     text(Score + "", 800, 35);
+    popMatrix();
     return Score;
   }
   void EndScreen(float timerValue, Player player) {
@@ -142,16 +146,19 @@ class UI {
       fill(0);
       textSize(30);
       textAlign(CENTER);
-      String text = "Press W to restart!";
+      String text = "Type your name and Enter to restart!";
+      text(pName, 500, 750);
+      text(text, 500, 700);
 
-      text(text, 500, 750);
+      // if (input.isDown('W')) {
 
-      if (input.isDown('W')) {
-
-        START = true;
-        player.alive=true;
-        skipaAhead = false;
-      }
+      //   START = true;
+      //   player.alive=true;
+      //   skipaAhead = false;
+      // }
     }
+  }
+  void UIlight() {
+    pointLight(255, 255, 255, 800, 35, 100);
   }
 }

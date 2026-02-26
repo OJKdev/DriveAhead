@@ -73,10 +73,12 @@ class Vehicle {
     t = constrain(t, 0, 1);
     float l = map(Pos, -4000, -2000, 10, 5);
     l = constrain(l, 5, 10);
+    float h = map(Pos, -2500, -1700, 40, 0);
+    h = constrain(h, 0, 40);
 
     //Draw car
     pushMatrix();
-    translate(currentLane+Steer, 328+tHeight, Pos);
+    translate(currentLane+Steer, 328+tHeight+h, Pos);
 
     //Body
     pushMatrix();
