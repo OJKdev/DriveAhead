@@ -28,8 +28,7 @@ The project explores:
 - Real-time update loops (`draw()` lifecycle)  
 - Array-based entity management  
 - Separation of logic and rendering  
-- Performance considerations in GPU-accelerated P3D  
-- Exporting Java applications to standalone Windows builds  
+- Performance considerations in GPU-accelerated P3D   
 
 ---
 
@@ -39,8 +38,7 @@ Instead of using a traditional game engine, this project intentionally uses Proc
 
 - Understand rendering pipelines at a lower level  
 - Build update loops manually  
-- Control entity lifecycle explicitly  
-- Experiment with architecture patterns  
+- Control entity lifecycle explicitly   
 
 It serves as both a learning tool and a technical playground.
 
@@ -53,7 +51,6 @@ It serves as both a learning tool and a technical playground.
 - Dynamic speed adaptation  
 - Player-relative movement system  
 - Custom scoring logic (distance + speed + time)  
-- Standalone Windows export  
 
 ---
 
@@ -82,3 +79,6 @@ It demonstrates:
 This project is licensed under the MIT License.
 
 You are free to use, modify, and distribute the code under the terms of that license.
+
+
+_This README was generated with the assistance of ChatGPT based on my own project notes and documentation._
