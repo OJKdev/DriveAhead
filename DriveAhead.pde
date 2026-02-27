@@ -27,7 +27,7 @@ Boolean START = false;
 float currentFreqL;
 float currentFreqH;
 
-
+Boolean ScoreBoard = false;
 
 
 void settings() {
@@ -138,7 +138,6 @@ void draw() {
 
     ambientLight(255, 255, 255);
     odometer.countDistance(drive.value(), timer.deltaTime);
-    //hint(DISABLE_DEPTH_TEST);
 
     ui.odometer(odometer.distanceKm);
     ui.speedoMeter(drive.value());
@@ -147,18 +146,18 @@ void draw() {
 
 
     popMatrix();
-
-
-    //hint(ENABLE_DEPTH_TEST);
   } else {
     background(#FFFFFF);
 
 
     saw.stop();
-
     sq.stop();
 
-    ui.EndScreen(timer.Value(), player);
+    if (!ScoreBoard) {
+      ui.EndScreen(timer.Value());
+    } else {
+      ui.loadScores();
+    }
   }
 
   //Global Matrix pop
@@ -173,9 +172,11 @@ void keyPressed() {
       pName = pName.substring(0, pName.length()-1);
     } else if (key == ENTER || key == RETURN) {
       println("Du skrev: " + pName);
-      START = true;
-      player.alive=true;
+      saveScore(pName, ui.fScore, ui.fDist, ui.time, ui.avgSpeed);
+      // START = true;
+      // player.alive=true;
       ui.skipaAhead = false;
+      ScoreBoard = true;
     } else if (key != CODED) {
       pName += key;
     }
@@ -187,8 +188,7 @@ void keyReleased() {
 }
 
 
-void daynight() {
-}
+
 
 void sound () {
   if (drive.gearRate >= 0.4) {
@@ -222,4 +222,34 @@ void sound () {
 
   saw.freq(fr);
   sq.freq(frs);
+}
+
+void saveScore(String name, float score, float dist, String time, float avgSpeed) {
+
+  JSONObject root;
+  JSONArray scores;
+
+  // Om filen finns → ladda den
+  try {
+    root = loadJSONObject("highscores.json");
+    scores = root.getJSONArray("scores");
+  }
+  catch(Exception e) {
+    // Om filen inte finns → skapa ny
+    root = new JSONObject();
+    scores = new JSONArray();
+    root.setJSONArray("scores", scores);
+  }
+
+  // Skapa nytt score-objekt
+  JSONObject newScore = new JSONObject();
+  newScore.setString("name", name);
+  newScore.setFloat("score", score);
+  newScore.setFloat("dist", dist);
+  newScore.setString("time", time);
+  newScore.setFloat("avgSpeed", avgSpeed);
+
+  scores.append(newScore);
+
+  saveJSONObject(root, "highscores.json");
 }
