@@ -59,16 +59,10 @@ It serves as both a learning tool and a technical playground.
 
 ## 🚀 Running the Project
 
-### Option 1 – Processing
-
-1. Open in Processing (Java mode)  
+1. Donwload latest version of Processing (www.processing.org)
+1. Open "DriveAhead (Scetch).pdez" in Processing (Java mode)  
 2. Press Run  
 
-### Option 2 – Windows Build
-
-Run the exported `.exe` file inside the `application.windows64` folder.
-
----
 
 ## 📚 Educational Purpose
 
