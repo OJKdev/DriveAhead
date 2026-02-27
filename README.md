@@ -80,5 +80,6 @@ This project is licensed under the MIT License.
 
 You are free to use, modify, and distribute the code under the terms of that license.
 
+---
 
 _This README was generated with the assistance of ChatGPT based on my own project notes and documentation._
