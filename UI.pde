@@ -208,7 +208,7 @@ class UI {
       float avgSpeed = s.getFloat("avgSpeed");
 
       pushMatrix();
-      translate(200, i*98, 0);
+      translate(200, i*90, 0);
       textAlign(LEFT);
       textSize(40);
       text((i+1) +". " + name + ", " + nf(score, 0, 0)+"p", 100, -35);
