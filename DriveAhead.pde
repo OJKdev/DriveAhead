@@ -171,7 +171,6 @@ void keyPressed() {
     if (key == BACKSPACE && pName.length() > 0) {
       pName = pName.substring(0, pName.length()-1);
     } else if (key == ENTER || key == RETURN) {
-      println("Du skrev: " + pName);
       saveScore(pName, ui.fScore, ui.fDist, ui.time, ui.avgSpeed);
       // START = true;
       // player.alive=true;
@@ -218,7 +217,6 @@ void sound () {
   fr = constrain(fr, 0, 10000);
   float frs = map(drive.value(), 0, 20, currentFreqL-20, currentFreqH-20);
   frs = constrain(frs, 0, 10000);
-  println(drive.gearRate);
 
   saw.freq(fr);
   sq.freq(frs);

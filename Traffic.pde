@@ -149,7 +149,6 @@ class Traffic
         float t = map(v.currentLane, 380, 620, 100, -100);
         if (abs(t-steer) < 70) {
           player.overlap = true;
-          println("hit", v.PlateText);
         }
       }
     }

@@ -224,7 +224,7 @@ class UI {
     fill(0);
     textSize(30);
     textAlign(CENTER);
-    String text = "Press W to drive ahead!";
+    String text = "Press W to drive!";
 
     text(text, -96, 25);
 
