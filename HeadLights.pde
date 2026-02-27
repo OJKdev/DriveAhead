@@ -9,7 +9,7 @@ class Headlights {
         -2, 1, -5,
         PI/6.5,
         3);
-      //lightFalloff(-3.8, 0.0, 0.00008
+      
 
       spotLight(253, 255, 193,
         600+laneOffset, 311, 830,
@@ -33,7 +33,7 @@ class Headlights {
       0, 0, -5,
       PI/6.6,
       6);
-    //HeadLightGizmo(x, y, z);
+   
   }
   public void HeadLightGizmo(float x, float y, float z) {
     pushMatrix();

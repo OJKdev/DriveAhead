@@ -12,7 +12,6 @@ class Road {
 
     RoadLines(speed);
     TheRoad();
-    //Lines();
     LeftRoadSide();
     RightRoadSide();
   }

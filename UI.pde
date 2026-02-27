@@ -71,15 +71,14 @@ class UI {
     float deltaDist = max(0, fDist - lastDist);
     lastDist = fDist;
 
-    // snittfart km/h
+    
     float h = fTime / 3600000.0;
     avgSpeed = fDist / max(h, 0.000001);
 
-    // multiplier baserat på snittfart
     float targetSpeed = 130.0;
     float p = 1.5;
 
-    //float mult = pow(avgSpeed / targetSpeed, p);
+
     float mult;
     if (fSpeed < 60) mult = 0.1;
     else if (fSpeed < 90) mult = 0.4;
@@ -89,10 +88,9 @@ class UI {
     else if (fSpeed < 180) mult = 2;
     else mult = 2.5;
 
-    // clamp så den aldrig blir för sjuk/låg (valfritt)
+   
     mult = constrain(mult, 0.1, 5.0);
 
-    // poäng: 100 poäng per km * multiplier
     fScore += deltaDist * 100.0 * mult;
 
 
@@ -192,7 +190,7 @@ class UI {
         float scoreA = a.getFloat("score");
         float scoreB = b.getFloat("score");
 
-        // Om j är större än i → byt plats
+      
         if (scoreB > scoreA) {
           scores.setJSONObject(i, b);
           scores.setJSONObject(j, a);

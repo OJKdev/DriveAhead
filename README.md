@@ -50,7 +50,11 @@ It serves as both a learning tool and a technical playground.
 - Overtake and merge behavior  
 - Dynamic speed adaptation  
 - Player-relative movement system  
-- Custom scoring logic (distance + speed + time)  
+- Custom scoring logic (distance + speed + time)
+- Scores saved in JSON
+- Day/Night Cycle
+- Simple sound using Processing Sound Library
+ 
 
 ---
 
@@ -58,7 +62,16 @@ It serves as both a learning tool and a technical playground.
 
 1. Donwload latest version of Processing (www.processing.org)
 1. Open "DriveAhead (Scetch).pdez" in Processing (Java mode)  
-2. Press Run  
+2. Install the Sound library by The Processing Foundation (Sketch → Import Library → Add Library/Manage Libraies) 
+3. Press Run  
+
+---
+
+## 🚀 Playing the Game
+
+- Use AWSD for movement
+- Use Space Bar to use beam headlights
+- Try to get the highest score
 
 
 ## 📚 Educational Purpose
@@ -82,4 +95,4 @@ You are free to use, modify, and distribute the code under the terms of that lic
 
 ---
 
-_This README was generated with the assistance of ChatGPT based on my own project notes and documentation._
+_This README was generated with the assistance of ChatGPT, based entirely on my own project notes, structure, and development process._

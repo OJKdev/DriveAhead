@@ -122,7 +122,7 @@ class Vehicle {
 
     //PlateText
     pushMatrix();
-    translate(0, 19.5, 49); // x,y,z i 3D-världen
+    translate(0, 19.5, 49); 
     fill(0);
     textSize(6);
     textAlign(CENTER);

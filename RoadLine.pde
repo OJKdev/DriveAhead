@@ -15,7 +15,7 @@ class RoadLine {
     translate(500+laneOffset, 337, LineStart);
     rotateY(0.0);
     fill(255);
-    //stroke(163);
+    
     noStroke();
     box(-4, 0, Length);
     popMatrix();

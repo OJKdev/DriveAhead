@@ -89,7 +89,7 @@ class Traffic
               b.vAheadSpeed = a.Speed;
               b.vAhead = true;
             }
-            if (a.Pos > b.Pos) {
+            if (a.Pos < b.Pos) {
               a.vBehindSpeed = b.Speed;
               a.vBehind = true;
             }
@@ -118,19 +118,20 @@ class Traffic
       if (v.vBehind) {
         if (v.vBehindSpeed > v.Speed) {
           if (v.OuterLane) {
-            if (!v.vAhead || !v.overlap) { //varför får ingen vara framför?
+            if (!v.vAhead || !v.overlap) { 
               v.leavePrecedence = true;
             }
           }
         }
       }
-      if (v.isNearPlayer/*  && v.conformable > 0.85 */) {
-        if (v.OuterLane && steer > 0) {
-          if (!v.vAhead || !v.violatePerimiter || !v.overlap) {
-            //v.leavePrecedence = true;
-          }
-        }
-      }
+      //Attempt to make vehicle leave precedence for player WIP
+      //if (v.isNearPlayer/*  && v.conformable > 0.85 */) {
+      //  if (v.OuterLane && steer > 0) {
+      //    if (!v.vAhead || !v.violatePerimiter || !v.overlap) {
+      //      //v.leavePrecedence = true;
+      //    }
+      //  }
+      //}
       if (v.vAhead) {
         if (v.Speed > v.vAheadSpeed) {
           if (!v.OuterLane && !v.isNearPlayer) {
@@ -162,7 +163,7 @@ class Traffic
       }
 
       if (v.leavePrecedence) {
-        //v.Speed = v.vBehindSpeed;
+        
         if (v.OuterLane && (v.currentLane > 418 && v.currentLane < 420)) {
 
           if (v.overlap == false) {

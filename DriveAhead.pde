@@ -88,7 +88,7 @@ void draw() {
     }
 
     pushMatrix();
-    //background(#00080F);
+    
     float cycleLength = 600.0;
     float ti = (timer.timer) % cycleLength;
 
@@ -112,7 +112,7 @@ void draw() {
     //Ui
 
     odometer.countDistance(drive.value(), timer.deltaTime);
-    //hint(DISABLE_DEPTH_TEST);
+    
 
     ui.odometer(odometer.distanceKm);
     ui.speedoMeter(drive.value());
@@ -172,8 +172,6 @@ void keyPressed() {
       pName = pName.substring(0, pName.length()-1);
     } else if (key == ENTER || key == RETURN) {
       saveScore(pName, ui.fScore, ui.fDist, ui.time, ui.avgSpeed);
-      // START = true;
-      // player.alive=true;
       ui.skipaAhead = false;
       ScoreBoard = true;
     } else if (key != CODED) {
@@ -227,19 +225,17 @@ void saveScore(String name, float score, float dist, String time, float avgSpeed
   JSONObject root;
   JSONArray scores;
 
-  // Om filen finns → ladda den
+  
   try {
     root = loadJSONObject("highscores.json");
     scores = root.getJSONArray("scores");
   }
   catch(Exception e) {
-    // Om filen inte finns → skapa ny
     root = new JSONObject();
     scores = new JSONArray();
     root.setJSONArray("scores", scores);
   }
 
-  // Skapa nytt score-objekt
   JSONObject newScore = new JSONObject();
   newScore.setString("name", name);
   newScore.setFloat("score", score);
